@@ -1,0 +1,217 @@
+/* ADITHYA Security Services - Hero Section Styles */
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--bg-dark);
+}
+
+
+/* ============================================
+   HERO SLIDER
+   ============================================ */
+
+.hero-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: zoomIn 8s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+/* ============================================
+   HERO CONTENT
+   ============================================ */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding-top: var(--header-height);
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-6);
+    animation: slideDown 0.8s ease;
+}
+
+.hero-badge i {
+    color: var(--secondary-400);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, var(--font-size-7xl));
+    font-weight: var(--font-weight-extrabold);
+    color: var(--text-light);
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+    animation: slideUp 0.8s ease 0.2s both;
+}
+
+.hero-title .text-gradient {
+    background: linear-gradient(135deg, var(--primary-400), var(--secondary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: var(--font-size-lg);
+    color: var(--text-light-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    animation: slideUp 0.8s ease 0.4s both;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    animation: slideUp 0.8s ease 0.6s both;
+}
+
+
+/* ============================================
+   SLIDER CONTROLS
+   ============================================ */
+
+.slider-controls {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    z-index: 10;
+}
+
+.slider-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--text-light);
+    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.slider-btn:hover {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+    transform: scale(1.1);
+}
+
+.slider-dots {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: none;
+}
+
+.slider-dots .dot:hover,
+.slider-dots .dot.active {
+    background: var(--text-light);
+    transform: scale(1.2);
+}
+
+.slider-dots .dot.active {
+    width: 30px;
+    border-radius: var(--radius-xl);
+}
+
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: calc(var(--header-height) + 40px) 0;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin: 0 auto var(--space-8);
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .slider-controls {
+        bottom: 60px;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
