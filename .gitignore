@@ -11,3 +11,8 @@ Thumbs.db
 
 # Local server script (optional to exclude)
 # server.ps1
+# Node modules
+node_modules/
+
+# Environment variables
+.env
